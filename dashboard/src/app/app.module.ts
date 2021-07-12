@@ -3,14 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AnalyticsPageComponent } from './analytics-page/analytics-page.component';
+import { NewUsersComponent } from './new-users/new-users.component';
+
+import {ChartModule} from 'primeng/chart';
+import { PageViewsComponent } from './page-views/page-views.component';
+import { PlatformActivityComponent } from './platform-activity/platform-activity.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    AnalyticsPageComponent,
+    NewUsersComponent,
+    PageViewsComponent,
+    PlatformActivityComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,46 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 960px));
+    grid-template-rows: auto;
+    grid-gap: 0.5rem;
+}
+
+@media only screen and (max-width: 100vw) {
+    .one {
+        grid-column: span 1;
+        max-width: 60rem;
+        padding: 2rem;
+      }
+    .two {
+        grid-column: span 1;
+        max-width: 60rem;
+        padding: 2rem;
+    
+    }
+    .three {
+        grid-column: span 1;
+        max-width: 60rem;
+        padding: 2rem;
+    
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .one {
+        grid-column: span 1;
+        max-width: 60rem;
+        padding: 0;
+      }
+    .two {
+        grid-column: span 1;
+        max-width: 60rem;
+        padding: 0;
+    
+    }
+    .three {
+        grid-column: span 1;
+        max-width: 60rem;
+        padding: 0;
+    
+    }
+}

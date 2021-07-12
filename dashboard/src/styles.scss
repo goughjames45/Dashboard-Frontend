@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --primary: #a1fefe;
+    --secondary: #ffffff;
+    --accent: #ff4040;
+    --background: #f5f5f5;
+    --main-text: #444C57;
+    --secondary-text: #ffffff;
+    --background-secondary: #2c2c2c;
+}
+
+body {
+    background-color: var(--background);
+}
+
+.card {
+    background-color: var(--secondary);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn {
+    background-color: var(--accent);
+    border-radius: 30px;
+    border: none;
+    padding: 1rem;
+    color: white;
+    cursor: pointer;
+}
+
+h1, h2, h3, h4, span, a, i, label, p {
+    
+    font-family: "Roboto";
+    color: var(--main-text);
+}
+
+a {
+    font-size: 24px;
+}
+
+input, textarea{
+    border-radius: 1rem;
+    padding: 0.675rem;
+    border: 1px solid var(--main-text);
+}
+
+input:focus, textarea:focus{
+    outline: none;
+}
