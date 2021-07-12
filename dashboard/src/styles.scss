@@ -13,12 +13,27 @@ body {
     background-color: var(--background);
 }
 
-.card {
-    background-color: var(--secondary);
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+@media only screen and (max-width: 100vw) {
+    .card {
+        background-color: var(--secondary);
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    
 }
+
+@media only screen and (max-width: 480px) {
+    .card {
+        background-color: var(--secondary);
+        border-radius: 1rem;
+        padding: 0;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+        max-width: 320px;
+    }
+}
+
 
 .btn {
     background-color: var(--accent);
