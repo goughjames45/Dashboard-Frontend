@@ -10,6 +10,8 @@ import { NewUsersComponent } from './new-users/new-users.component';
 import {ChartModule} from 'primeng/chart';
 import { PageViewsComponent } from './page-views/page-views.component';
 import { PlatformActivityComponent } from './platform-activity/platform-activity.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { PlatformActivityComponent } from './platform-activity/platform-activity
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ChartModule
+    ChartModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+enum PlatformType {
+  MOBILE = 'mobile',
+  TABLET = 'tablet',
+  DESKTOP = 'desktop',
+}
+
+interface Platform {
+  platformType: PlatformType,
+  visits: number,
+}
 
 @Component({
   selector: 'app-platform-activity',
@@ -8,26 +21,41 @@ import { Component, OnInit } from '@angular/core';
 export class PlatformActivityComponent implements OnInit {
 
   data: any;
-  constructor() { }
+  today = new Date();
+  url = `http://localhost:3000/api/platformUsage?date=${this.today}`;
+
+  private sub?: Subscription;
+
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
-    this.data = {
-      labels: ['A','B','C'],
-      datasets: [
+    //this should normally go in a service...
+    this.sub = this.httpClient.get<Platform[]>(this.url).subscribe((data) => {
+      const labels = data.map(element => element.platformType);
+      const dataset = data.map(element => element.visits);
+
+      this.data = {
+        labels: labels,
+        datasets: [
           {
-              data: [300, 50, 100],
-              backgroundColor: [
-                  "#FF6384",
-                  "#36A2EB",
-                  "#FFCE56"
-              ],
-              hoverBackgroundColor: [
-                  "#FF6384",
-                  "#36A2EB",
-                  "#FFCE56"
-              ]
-          }]    
-    };
+            label: 'Number of users per platform',
+            data: dataset,
+            fill: false,
+            backgroundColor: [
+              "#FF6384",
+              "#36A2EB",
+              "#FFCE56"
+            ],
+          }
+        ],
+        
+      };
+    });
+
+  }
+
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe()
   }
 
 }
